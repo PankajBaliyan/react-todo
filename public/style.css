@@ -20,8 +20,11 @@ body {
 h2 {
     margin-bottom: 10px !important;
     margin-bottom: 15px;
+    font-family: Comic Sans MS;
 }
-h6,h2{
+
+h6,
+h2 {
     color: white;
 }
 
@@ -37,12 +40,16 @@ form {
     padding: 5px 5px 5px 10px;
     margin-top: 5px;
     overflow: auto;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #inputBox {
     width: 70%;
 }
 
-.todo-list{
+.todo-list {
     overflow: auto;
 }
