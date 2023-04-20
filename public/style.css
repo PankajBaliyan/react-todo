@@ -14,12 +14,15 @@ body {
     flex-direction: column;
     padding: 20px;
     width: 35rem;
+    max-height: 500px;
 }
 
 h2 {
-    color: white;
     margin-bottom: 10px !important;
     margin-bottom: 15px;
+}
+h6,h2{
+    color: white;
 }
 
 form {
@@ -33,8 +36,13 @@ form {
     border-radius: 5px;
     padding: 5px 5px 5px 10px;
     margin-top: 5px;
+    overflow: auto;
 }
 
 #inputBox {
     width: 70%;
+}
+
+.todo-list{
+    overflow: auto;
 }
