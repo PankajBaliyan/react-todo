@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import ListItem from './components/ListItem'
 
 function App() {
+  const [list, setList] = useState([])
+  const [input, setInput] = useState('')
+
+  const inputChangeHandler = (event) =>{
+    const newInputVal = event.target.value;
+    setInput(newInputVal);
+  }
+
+  const addItemToList = () =>{
+    setList((prevList) => {
+      return [...list, input];
+    });
+    setInput('')
+  }
+
+  const deleteItemFromList = (uniqueId) =>{
+    const newArr = list.filter((item,idx)=>{
+      return idx !== uniqueId
+    });
+    setList(newArr)
+    console.log("deleted Item",uniqueId)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <input type="text" onChange={inputChangeHandler} value={input}></input>
+      <button onClick={addItemToList}>Add</button>
+      <div>
+        {list.map((item,idx)=>{
+            return <ListItem value={item} uniqueId={idx} key={idx} deleteItem={deleteItemFromList}/>
+          })}
+      </div>
+    </React.Fragment>
   );
 }
 
