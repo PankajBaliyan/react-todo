@@ -28,7 +28,7 @@ const ListItem = (props) => {
     };
     return (
         <>
-            <div onClick={deleteListItem}>{props.value}</div>
+            <div className="contentHere" onClick={deleteListItem}>{props.value}</div>
         </>
     );
 };
